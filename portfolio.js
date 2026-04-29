@@ -131,7 +131,7 @@ const projects = [
     logo: "images/portfolio.png",
     description: "A single-page application that dynamically loads content using JavaScript...",
     tech: "JavaScript, DOM Manipulation",
-    github: "https://github.com/YOUR_LINK"
+    github: "https://breannaruckle.github.io/Dynamic-Portfolio-Website/"
   },
   {
     title: "Bird Sighting Form",
