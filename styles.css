@@ -85,7 +85,7 @@ nav a:hover {
 /* Header */
 header {
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 /* Main Content Panel */
@@ -148,7 +148,6 @@ main ul {
 
 .courseCard:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 /* ===================================================== */
@@ -381,5 +380,22 @@ main ul {
 .project:hover {
     transform: translateY(-3px);
     transition: 0.2s;
+}
+
+#pageTitle {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+
+    color: #000; 
+
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+
+    padding: 12px 30px;
+    border-radius: 15px;
+
+    display: inline-block;
 }
 
