@@ -293,7 +293,9 @@ let html = `
         </p>
 
         <p><strong>Website/Blog:</strong> 
-            <a href="#https://example.com" target="_blank">Missouri Ornithology Project</a>
+            <a href="https://example.com" target="_blank">
+                Missouri Ornithology Project
+            </a>
         </p>
     </div>
 
