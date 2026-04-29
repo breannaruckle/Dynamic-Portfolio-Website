@@ -151,6 +151,7 @@ const projects = [
 
 function loadHome() { 
     let main = document.getElementById("mainContent");
+    document.getElementById("pageTitle").textContent = "Home";
 
     let html = `
         <h2>${profile.name}</h2>
@@ -210,6 +211,7 @@ function loadHome() {
 
 function loadCourses() {
     let main = document.getElementById("mainContent");
+    document.getElementById("pageTitle").textContent = "Courses";
 
     let html = "<h2>Courses</h2>";
 
@@ -242,7 +244,7 @@ function loadCourses() {
 
 function loadProjects() {
     let main = document.getElementById("mainContent");
-
+    document.getElementById("pageTitle").textContent = "Projects";
     let html = "<h2>Projects</h2>";
 
     for (let i = 0; i < projects.length; i++) {
@@ -267,6 +269,7 @@ function loadProjects() {
 
 function loadContact() {
     let main = document.getElementById("mainContent");
+    document.getElementById("pageTitle").textContent = "Contact";
 
     let html = `
 
