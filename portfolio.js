@@ -7,6 +7,11 @@
 
   Filename: portfolio.js
 */
+
+/* ===================================================== */
+/* ===================== PROFILE DATA =================== */
+/* ===================================================== */
+
 const profile = {
   name: "Bre Ruckle",
   about: "I am a web development student focused on building interactive and user-friendly websites using HTML, CSS, and JavaScript. Through my coursework and personal projects, I have developed a strong foundation in front-end development, including DOM manipulation, responsive design, and form validation. I enjoy combining clean design with functional code, creating websites that are both visually appealing and easy to navigate. My projects, such as a dynamic portfolio site and a multi-page bird information website, reflect my ability to apply programming concepts to real-world scenarios. I am continuously learning and improving my skills, with an interest in expanding into more advanced JavaScript techniques and modern web design practices. I take pride in writing organized, readable code and creating projects that demonstrate both creativity and technical understanding.",
@@ -26,14 +31,17 @@ const profile = {
   ],
 
   gallery: [
-    "images/photo1.PNG",
-    "images/photo2.PNG",
+    "images/photo1.png",
+    "images/photo2.png",
     "images/photo3.jpg",
-    "images/photo4.PNG",
+    "images/photo4.png",
     "images/photo5.jpg"
   ]
-
 };
+
+/* ===================================================== */
+/* ===================== COURSES DATA =================== */
+/* ===================================================== */
 
 const courses = [
     {
@@ -118,6 +126,10 @@ const courses = [
     }
 ];
 
+/* ===================================================== */
+/* ===================== PROJECTS DATA ================== */
+/* ===================================================== */
+
 const projects = [
   {
     title: "Native Missouri Birds Website",
@@ -149,6 +161,11 @@ const projects = [
   }
 ];
 
+/* ===================================================== */
+/* ===================== PAGE LOAD FUNCTIONS ============ */
+/* ===================================================== */
+
+/* ---------- HOME PAGE ---------- */
 function loadHome() { 
     let main = document.getElementById("mainContent");
     document.getElementById("pageTitle").textContent = "Home";
@@ -161,7 +178,6 @@ function loadHome() {
         <ul>
     `;
 
-    // HOBBIES
     for (let i = 0; i < profile.hobbies.length; i++) {
         html += "<li>" + profile.hobbies[i] + "</li>";
     }
@@ -173,7 +189,6 @@ function loadHome() {
         <ul>
     `;
 
-    // BLOGS
     for (let i = 0; i < profile.blogs.length; i++) {
         html += "<li>" + profile.blogs[i] + "</li>";
     }
@@ -185,44 +200,33 @@ function loadHome() {
 
         <div class="galleryContainer">
             <button onclick="prevImage()">⟨</button>
-
             <img id="mainImage" src="${profile.gallery[0]}" alt="main image" onclick="openLightbox()">
-
             <button onclick="nextImage()">⟩</button>
         </div>
 
         <div class="thumbnails">
     `;
 
-    // THUMBNAILS
     for (let i = 0; i < profile.gallery.length; i++) {
-        html += "<img src='" + profile.gallery[i] + "' alt='Gallery image' onclick='selectImage(" + i + ")'>";
+        html += "<img src='" + profile.gallery[i] + "' onclick='selectImage(" + i + ")'>";
     }
 
-    html += `
-        </div>
-    `;
+    html += `</div>`;
 
     main.innerHTML = html;
-
-    // reset gallery index
     currentIndex = 0;
 }
 
+/* ---------- COURSES PAGE ---------- */
 function loadCourses() {
     let main = document.getElementById("mainContent");
     document.getElementById("pageTitle").textContent = "Courses";
 
     let html = "<h2>Courses</h2>";
-
-    // 🔥 START GRID WRAPPER
     html += "<div class='courseGrid'>";
 
     for (let i = 0; i < courses.length; i++) {
-
-        // 🔥 EACH COURSE CARD
         html += "<div class='courseCard'>";
-
         html += "<h3>" + courses[i].name + "</h3>";
         html += "<ul>";
 
@@ -230,28 +234,25 @@ function loadCourses() {
             html += "<li>" + courses[i].learned[j] + "</li>";
         }
 
-        html += "</ul>";
-
-        // 🔥 CLOSE CARD
-        html += "</div>";
+        html += "</ul></div>";
     }
 
-    // 🔥 CLOSE GRID
     html += "</div>";
-
     main.innerHTML = html;
 }
 
+/* ---------- PROJECTS PAGE ---------- */
 function loadProjects() {
     let main = document.getElementById("mainContent");
     document.getElementById("pageTitle").textContent = "Projects";
+
     let html = "<h2>Projects</h2>";
 
     for (let i = 0; i < projects.length; i++) {
         html += "<div class='project'>";
 
         html += "<div class='projectLeft'>";
-        html += "<img src='" + projects[i].logo + "' class='projectLogo' alt='" + projects[i].title + " logo'>";
+        html += "<img src='" + projects[i].logo + "' class='projectLogo'>";
         html += "</div>";
 
         html += "<div class='projectRight'>";
@@ -267,13 +268,14 @@ function loadProjects() {
     main.innerHTML = html;
 }
 
+/* ---------- CONTACT PAGE ---------- */
 function loadContact() {
     let main = document.getElementById("mainContent");
     document.getElementById("pageTitle").textContent = "Contact";
 
-    let html = `
+let html = `
 
-        <div class="myContactSection">
+    <div class="myContactSection">
         <h2>Contact Information</h2>
 
         <p><strong>Email:</strong> breanna.ruckle@gmail.com</p>
@@ -295,62 +297,52 @@ function loadContact() {
         </p>
     </div>
 
+    <div class="contactContainer">
 
+        <div class="contactInfo">
+            <h2>Have a question?</h2>
+            <p>
+              Have a question about my work or want to connect? I’m always open to discussing 
+              web development projects, ideas, or opportunities.
+            </p>
 
-
-        <div class="contactContainer">
-
-            <!-- LEFT SIDE -->
-            <div class="contactInfo">
-                <h2>Have a question?</h2>
-                <p>
-                  Have a question about my work or want to connect? I’m always open to discussing 
-                  web development projects, ideas, or opportunities. Use the form to send a message 
-                  and I’ll respond as soon as possible.
-                </p>
-
-                <p>
-                  Whether you're reaching out about a project, feedback, or general questions, 
-                  I aim to reply within 24 hours during the week.
-                </p>
-
-                <p><strong>Email:</strong> bjruckle1s@semo.com</p>
-                
-            </div>
-
-            <!-- RIGHT SIDE (FORM) -->
-            <form id="contactForm" class="contactForm">
-
-                <div class="nameRow">
-                    <input type="text" id="firstName" placeholder="First Name">
-                    <input type="text" id="lastName" placeholder="Last Name">
-                </div>
-
-                <input type="email" id="email" placeholder="Email">
-
-                <input type="text" id="phone" placeholder="Phone Number (optional)">
-
-                <select id="topic">
-                    <option value="">Select a topic</option>
-                    <option>General Question</option>
-                    <option>Project Inquiry</option>
-                    <option>Feedback</option>
-                </select>
-
-                <textarea id="message" placeholder="Message"></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-
+            <p><strong>Email:</strong> bjruckle1s@semo.com</p>
         </div>
 
-        <p id="formMessage"></p>
-    `;
+        <form id="contactForm" class="contactForm">
+
+            <div class="nameRow">
+                <input type="text" id="firstName" placeholder="First Name">
+                <input type="text" id="lastName" placeholder="Last Name">
+            </div>
+
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Phone Number (optional)">
+
+            <select id="topic">
+                <option value="">Select a topic</option>
+                <option>General Question</option>
+                <option>Project Inquiry</option>
+                <option>Feedback</option>
+            </select>
+
+            <textarea id="message" placeholder="Message"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+    </div>
+
+    <p id="formMessage"></p>
+`;
 
     main.innerHTML = html;
-
     document.getElementById("contactForm").addEventListener("submit", validateForm);
 }
+
+/* ===================================================== */
+/* ===================== FORM VALIDATION ================ */
+/* ===================================================== */
 
 function validateForm(event) {
     event.preventDefault();
@@ -364,47 +356,43 @@ function validateForm(event) {
 
     let message = document.getElementById("formMessage");
 
-    // 🔥 REGEX
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let cleanedPhone = phone.replace(/\D/g, "");
 
-    // 🔴 REQUIRED FIELDS
     if (first === "" || last === "" || email === "" || topic === "" || messageText === "") {
         message.textContent = "Please fill out all required fields";
         message.style.color = "red";
     }
 
-    // NAME VALIDATION (at least 2 characters each)
     else if (first.length < 2 || last.length < 2) {
         message.textContent = "Please enter a valid first and last name";
         message.style.color = "red";
     }
 
-    // EMAIL VALIDATION
     else if (!emailPattern.test(email)) {
         message.textContent = "Please enter a valid email address";
         message.style.color = "red";
     }
 
-    // PHONE VALIDATION (if entered)
     else if (phone !== "" && cleanedPhone.length !== 10) {
         message.textContent = "Please enter a valid 10-digit phone number";
         message.style.color = "red";
     }
 
-    // MESSAGE LENGTH
     else if (messageText.length < 20) {
         message.textContent = "Message must be at least 20 characters long";
         message.style.color = "red";
     }
 
-    // SUCCESS
     else {
         message.textContent = "Message sent successfully!";
         message.style.color = "green";
     }
 }
 
+/* ===================================================== */
+/* ===================== GALLERY FUNCTIONS ============== */
+/* ===================================================== */
 
 let currentIndex = 0;
 
@@ -414,17 +402,21 @@ function showImage(index) {
 
 function nextImage() {
     currentIndex++;
+
     if (currentIndex >= profile.gallery.length) {
         currentIndex = 0;
     }
+
     showImage(currentIndex);
 }
 
 function prevImage() {
     currentIndex--;
+
     if (currentIndex < 0) {
         currentIndex = profile.gallery.length - 1;
     }
+
     showImage(currentIndex);
 }
 
@@ -433,7 +425,10 @@ function selectImage(index) {
     showImage(index);
 }
 
-/* LIGHTBOX FUNCTIONS */
+/* ===================================================== */
+/* ===================== LIGHTBOX FUNCTIONS ============= */
+/* ===================================================== */
+
 function openLightbox() {
     let lightbox = document.getElementById("lightbox");
     let lightboxImg = document.getElementById("lightboxImg");
@@ -447,6 +442,14 @@ function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
 }
 
+/* ===================================================== */
+/* ===================== INITIAL LOAD =================== */
+/* ===================================================== */
 
+window.onload = loadHome;
+
+/* ===================================================== */
+/* ===================== INITIAL LOAD =================== */
+/* ===================================================== */
 
 window.onload = loadHome;
