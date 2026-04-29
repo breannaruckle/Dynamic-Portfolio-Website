@@ -293,7 +293,7 @@ let html = `
         </p>
 
         <p><strong>Website/Blog:</strong> 
-            <a href="#" target="_blank">Missouri Ornithology Project</a>
+            <a href="#https://example.com" target="_blank">Missouri Ornithology Project</a>
         </p>
     </div>
 
@@ -448,8 +448,3 @@ function closeLightbox() {
 
 window.onload = loadHome;
 
-/* ===================================================== */
-/* ===================== INITIAL LOAD =================== */
-/* ===================================================== */
-
-window.onload = loadHome;
