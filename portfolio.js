@@ -251,7 +251,7 @@ function loadProjects() {
         html += "<div class='project'>";
 
         html += "<div class='projectLeft'>";
-        html += "<img src='" + projects[i].logo + "' class='projectLogo'>";
+        html += "<img src='" + projects[i].logo + "' class='projectLogo' alt='" + projects[i].title + " logo'>";
         html += "</div>";
 
         html += "<div class='projectRight'>";
