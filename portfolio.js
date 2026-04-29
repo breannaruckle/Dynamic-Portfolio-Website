@@ -196,7 +196,7 @@ function loadHome() {
 
     // THUMBNAILS
     for (let i = 0; i < profile.gallery.length; i++) {
-        html += "<img src='" + profile.gallery[i] + "' onclick='selectImage(" + i + ")'>";
+        html += "<img src='" + profile.gallery[i] + "' alt='Gallery image' onclick='selectImage(" + i + ")'>";
     }
 
     html += `
