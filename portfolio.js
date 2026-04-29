@@ -31,10 +31,10 @@ const profile = {
   ],
 
   gallery: [
-    "images/photo1.png",
-    "images/photo2.png",
+    "images/photo1.PNG",
+    "images/photo2.PNG",
     "images/photo3.jpg",
-    "images/photo4.png",
+    "images/photo4.PNG",
     "images/photo5.jpg"
   ]
 };
